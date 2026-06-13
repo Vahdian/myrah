@@ -373,9 +373,9 @@ h1 {
   align-content: start;
 }
 
-.product-highlight {
+.product-buy .product-highlight {
   margin: 0;
-  color: var(--sand) !important;
+  color: var(--sand);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -485,9 +485,9 @@ h1 {
   line-height: 1;
 }
 
-.exp-card p {
+.exp-card figcaption p {
   margin: 0;
-  color: rgba(241, 234, 214, 0.82) !important;
+  color: rgba(241, 234, 214, 0.82);
   font-size: 0.92rem;
   line-height: 1.45;
 }
@@ -573,9 +573,9 @@ h1 {
   background: rgba(63, 125, 73, 0.1);
 }
 
-.timeline-item p {
+.timeline-list .timeline-item p {
   margin: 0;
-  color: var(--ivory) !important;
+  color: var(--ivory);
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   line-height: 1.4;
 }
@@ -694,9 +694,9 @@ h1 {
   font-size: 1.4rem;
 }
 
-.principle p {
+.principles .principle p {
   margin: 0;
-  color: var(--ivory) !important;
+  color: var(--ivory);
   font-size: 1.1rem;
   letter-spacing: -0.01em;
 }
@@ -735,10 +735,10 @@ h1 {
   max-width: 18ch;
 }
 
-.final-cta-copy p {
+.final-cta .final-cta-copy p {
   margin: 0 auto 26px;
   max-width: 48ch;
-  color: rgba(241, 234, 214, 0.86) !important;
+  color: rgba(241, 234, 214, 0.86);
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
@@ -752,8 +752,8 @@ h1 {
     rgba(18, 18, 15, 0.82);
 }
 
-.send-note {
-  color: var(--sand) !important;
+.reserve .send-note {
+  color: var(--sand);
   font-size: 0.82rem;
   letter-spacing: 0.02em;
 }
