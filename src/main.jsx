@@ -483,22 +483,23 @@ function App() {
 
       <CountryBanner countries={countries} />
 
+      <a
+        className="header-ig"
+        href={INSTAGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Myrah en Instagram"
+      >
+        <InstagramIcon />
+        <span>{t.nav.instagram}</span>
+      </a>
+
       <header className="header">
         <Logo />
         <nav aria-label="Navegación principal">
           <a href="#manifiesto">{t.nav.manifesto}</a>
           <a href="#destinos">{t.nav.destinations}</a>
           <a href="#metodo">{t.nav.method}</a>
-          <a
-            className="nav-ig"
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Myrah en Instagram"
-          >
-            <InstagramIcon />
-            <span>{t.nav.instagram}</span>
-          </a>
           <a className="nav-cta" href="#contacto">{t.nav.cta}</a>
           <LanguageToggle lang={lang} onToggle={toggleLang} t={t} />
         </nav>

@@ -932,6 +932,36 @@ h1 {
   gap: 8px;
 }
 
+/* Instagram destacado en el centro superior de la página */
+.header-ig {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 10px auto 0;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ivory);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.header-ig:hover {
+  color: var(--sand);
+  border-color: rgba(217, 176, 102, 0.6);
+}
+
+.header-ig:hover .ig-mark {
+  stroke: var(--sand);
+}
+
 .ig-mark {
   width: 20px;
   height: 20px;
@@ -997,31 +1027,36 @@ h1 {
 
 .inscription-top {
   top: 6px;
-  left: 0;
-  right: 0;
+  left: 38px;
+  right: 38px;
   text-align: center;
+  overflow: hidden;
 }
 
 .inscription-bottom {
   bottom: 6px;
-  left: 0;
-  right: 0;
+  left: 38px;
+  right: 38px;
   text-align: center;
+  overflow: hidden;
   transform: rotate(180deg);
 }
 
 .inscription-left {
-  top: 50%;
+  top: 38px;
+  bottom: 38px;
   left: 6px;
-  transform: rotate(-90deg) translateX(-50%);
-  transform-origin: left center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  overflow: hidden;
 }
 
 .inscription-right {
-  top: 50%;
+  top: 38px;
+  bottom: 38px;
   right: 6px;
-  transform: rotate(90deg) translateX(-50%);
-  transform-origin: right center;
+  writing-mode: vertical-rl;
+  overflow: hidden;
 }
 
 /* ── Conmutador de modos de Uganda ────────────────────────── */
@@ -1172,8 +1207,7 @@ h1 {
     height: 44px;
   }
 
-  /* Mantener visibles idioma e Instagram aunque el resto del menú se oculte */
-  nav .nav-ig,
+  /* Mantener visible el idioma aunque el resto del menú se oculte */
   nav .lang-toggle {
     display: inline-flex;
   }
