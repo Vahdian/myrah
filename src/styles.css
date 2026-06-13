@@ -1,20 +1,42 @@
 :root {
   color-scheme: dark;
-  --ash: #0b0b0a;
-  --charcoal: #12120f;
-  --charcoal-2: #1d1c17;
-  --ivory: #eee3cf;
-  --muted: #a89d87;
-  --rust: #9b2f1f;
-  --blood: #651d16;
-  --sand: #c49a62;
-  --olive: #55604a;
-  --line: rgba(238, 227, 207, 0.16);
-  --glow: rgba(155, 47, 31, 0.38);
+  --ash: #07100b;
+  --charcoal: #0d1812;
+  --charcoal-2: #15231a;
+  --ivory: #f1ead6;
+  --muted: #9fb097;
+  /* Default adventurous green palette */
+  --accent: #3f7d49;
+  --accent-deep: #1f4a2c;
+  --sand: #d9b066;
+  --line: rgba(241, 234, 214, 0.16);
+  --glow: rgba(63, 125, 73, 0.4);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--ash);
   color: var(--ivory);
+}
+
+/* Destination-driven theming: green by default, gold and red variants */
+[data-theme="verde"] {
+  --accent: #3f7d49;
+  --accent-deep: #1f4a2c;
+  --sand: #d9b066;
+  --glow: rgba(63, 125, 73, 0.4);
+}
+
+[data-theme="dorado"] {
+  --accent: #c79332;
+  --accent-deep: #8a5f17;
+  --sand: #e7c989;
+  --glow: rgba(199, 147, 50, 0.42);
+}
+
+[data-theme="rojo"] {
+  --accent: #9b2f1f;
+  --accent-deep: #651d16;
+  --sand: #d9a05f;
+  --glow: rgba(155, 47, 31, 0.42);
 }
 
 * {
@@ -29,9 +51,10 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 76% 10%, rgba(155, 47, 31, 0.24), transparent 26rem),
-    radial-gradient(circle at 10% 24%, rgba(85, 96, 74, 0.25), transparent 24rem),
-    linear-gradient(120deg, #080807 0%, #15130f 46%, #090908 100%);
+    radial-gradient(circle at 78% 8%, rgba(217, 176, 102, 0.18), transparent 26rem),
+    radial-gradient(circle at 8% 22%, rgba(63, 125, 73, 0.3), transparent 26rem),
+    radial-gradient(circle at 52% 96%, rgba(31, 74, 44, 0.4), transparent 30rem),
+    linear-gradient(120deg, #050b08 0%, #0e1a12 48%, #060d09 100%);
 }
 
 a {
@@ -239,8 +262,8 @@ h1 {
 
 .primary,
 .waitlist button {
-  border-color: rgba(155, 47, 31, 0.78);
-  background: linear-gradient(135deg, var(--rust), var(--blood));
+  border-color: rgba(63, 125, 73, 0.78);
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
   color: var(--ivory);
   box-shadow: 0 18px 60px var(--glow);
 }
@@ -255,8 +278,8 @@ h1 {
   min-height: 650px;
   border: 1px solid var(--line);
   background:
-    linear-gradient(180deg, rgba(155, 47, 31, 0.16), transparent 36%),
-    linear-gradient(160deg, rgba(196, 154, 98, 0.13), transparent 45%),
+    linear-gradient(180deg, rgba(63, 125, 73, 0.16), transparent 36%),
+    linear-gradient(160deg, rgba(217, 176, 102, 0.13), transparent 45%),
     #10100d;
   overflow: hidden;
   display: flex;
@@ -286,13 +309,13 @@ h1 {
 .orbital span:nth-child(2) {
   width: 52%;
   aspect-ratio: 1 / 1;
-  border-color: rgba(155, 47, 31, 0.42);
+  border-color: rgba(63, 125, 73, 0.42);
 }
 
 .orbital span:nth-child(3) {
   width: 9px;
   height: 9px;
-  background: var(--rust);
+  background: var(--accent);
   border: none;
   box-shadow: 0 0 60px 24px var(--glow);
 }
@@ -387,9 +410,9 @@ h1 {
 
 .destination-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(196, 154, 98, 0.45);
+  border-color: rgba(217, 176, 102, 0.45);
   background:
-    linear-gradient(180deg, rgba(155, 47, 31, 0.14), transparent),
+    linear-gradient(180deg, rgba(63, 125, 73, 0.14), transparent),
     #11100d;
 }
 
@@ -425,7 +448,7 @@ h1 {
 }
 
 .principle span {
-  color: var(--rust);
+  color: var(--accent);
   font-weight: 950;
   font-size: 1.5rem;
 }
@@ -449,9 +472,9 @@ h1 {
   height: 380px;
   border: 1px solid var(--line);
   background:
-    linear-gradient(115deg, transparent 49.7%, rgba(196, 154, 98, 0.32) 50%, transparent 50.3%),
-    linear-gradient(35deg, transparent 49.7%, rgba(155, 47, 31, 0.28) 50%, transparent 50.3%),
-    radial-gradient(circle at 28% 72%, rgba(155, 47, 31, 0.26), transparent 10rem),
+    linear-gradient(115deg, transparent 49.7%, rgba(217, 176, 102, 0.32) 50%, transparent 50.3%),
+    linear-gradient(35deg, transparent 49.7%, rgba(63, 125, 73, 0.28) 50%, transparent 50.3%),
+    radial-gradient(circle at 28% 72%, rgba(63, 125, 73, 0.26), transparent 10rem),
     #090908;
 }
 
@@ -460,8 +483,8 @@ h1 {
   width: 18px;
   height: 18px;
   border: 2px solid var(--ivory);
-  background: var(--rust);
-  box-shadow: 0 0 0 10px rgba(155, 47, 31, 0.13);
+  background: var(--accent);
+  box-shadow: 0 0 0 10px rgba(63, 125, 73, 0.13);
 }
 
 .node-one { left: 14%; top: 68%; }
@@ -474,7 +497,7 @@ h1 {
   grid-template-columns: 0.85fr 1fr;
   gap: 42px;
   background:
-    radial-gradient(circle at 10% 20%, rgba(155, 47, 31, 0.18), transparent 20rem),
+    radial-gradient(circle at 10% 20%, rgba(63, 125, 73, 0.18), transparent 20rem),
     rgba(18, 18, 15, 0.82);
 }
 
@@ -506,7 +529,7 @@ h1 {
 
 .waitlist input:focus,
 .waitlist select:focus {
-  border-color: rgba(196, 154, 98, 0.62);
+  border-color: rgba(217, 176, 102, 0.62);
 }
 
 .footer {
@@ -601,5 +624,205 @@ h1 {
 
   .ritual-map {
     height: 280px;
+  }
+}
+
+/* ── Uganda featured expedition ───────────────────────────── */
+.uganda {
+  border-color: rgba(63, 125, 73, 0.4);
+  background:
+    radial-gradient(circle at 88% 4%, rgba(217, 176, 102, 0.14), transparent 22rem),
+    radial-gradient(circle at 4% 96%, rgba(63, 125, 73, 0.22), transparent 24rem),
+    rgba(13, 24, 18, 0.86);
+}
+
+.uganda-head {
+  max-width: 880px;
+  margin-bottom: 26px;
+}
+
+.uganda-head p {
+  font-size: 1.12rem;
+}
+
+.uganda-photo {
+  margin: 0 0 26px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  position: relative;
+}
+
+.uganda-photo img {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 42vw, 460px);
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.uganda-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 18px;
+  background: linear-gradient(0deg, rgba(5, 11, 8, 0.92), transparent);
+  color: var(--ivory);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.uganda-facts {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.fact {
+  border: 1px solid var(--line);
+  background: rgba(241, 234, 214, 0.04);
+  padding: 16px;
+  display: grid;
+  gap: 6px;
+}
+
+.fact span {
+  color: var(--sand);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
+.fact strong {
+  font-size: 1.02rem;
+  line-height: 1.2;
+}
+
+.uganda-body {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.itinerary h3,
+.details-card h3,
+.price-card span {
+  color: var(--sand);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+}
+
+.itinerary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.itinerary-item {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.itinerary-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.itinerary-day {
+  color: var(--accent);
+  font-weight: 950;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.84rem;
+  padding-top: 2px;
+}
+
+.itinerary-item h4 {
+  margin: 0 0 6px;
+  font-size: 1.18rem;
+  letter-spacing: -0.02em;
+}
+
+.itinerary-item p {
+  margin: 0;
+}
+
+.details {
+  display: grid;
+  gap: 14px;
+}
+
+.details-card {
+  border: 1px solid var(--line);
+  background: rgba(241, 234, 214, 0.035);
+  padding: 22px;
+}
+
+.details-card ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.details-card.muted-card {
+  background: rgba(7, 16, 11, 0.6);
+}
+
+.price-card {
+  border: 1px solid rgba(63, 125, 73, 0.5);
+  background:
+    linear-gradient(160deg, rgba(63, 125, 73, 0.2), transparent 60%),
+    rgba(13, 24, 18, 0.9);
+  padding: 24px;
+  display: grid;
+  gap: 8px;
+}
+
+.price-card strong {
+  font-size: clamp(2.6rem, 6vw, 3.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.price-card p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.price-card .button {
+  width: 100%;
+}
+
+@media (max-width: 920px) {
+  .uganda-facts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .uganda-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .uganda-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .itinerary-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 }
