@@ -44,7 +44,7 @@ const translations = {
       instagram: 'Instagram',
     },
     hero: {
-      kicker: 'Expedición de autor · Grupo máx. 8',
+      kicker: 'Expedición de autor · Grupo máx.\u00A08',
       title: 'Uganda. Diez días para volver a mirar el mundo de otra forma.',
       subtitle:
         'Gorilas de montaña, selva profunda, comunidades locales y un grupo máximo de 8 viajeros.',
@@ -181,7 +181,7 @@ const translations = {
       instagram: 'Instagram',
     },
     hero: {
-      kicker: 'Author-led expedition · Max group of 8',
+      kicker: 'Author-led expedition · Max group of\u00A08',
       title: 'Uganda. Ten days to see the world differently.',
       subtitle:
         'Mountain gorillas, deep jungle, local communities and a maximum of 8 travelers.',
@@ -339,27 +339,9 @@ function LanguageToggle({ lang, onToggle, t }) {
       aria-label={`${t.langName} · ${t.switchTo}`}
       title={`${t.langName} → ${t.switchTo}`}
     >
-      <span className={`flag ${lang === 'es' ? 'is-active' : ''}`} aria-hidden="true">
-        {/* Bandera de España */}
-        <svg viewBox="0 0 3 2" className="flag-svg">
-          <rect width="3" height="2" fill="#c60b1e" />
-          <rect width="3" height="1" y="0.5" fill="#ffc400" />
-        </svg>
-      </span>
-      <span className={`flag ${lang === 'en' ? 'is-active' : ''}`} aria-hidden="true">
-        {/* Bandera de Reino Unido */}
-        <svg viewBox="0 0 60 30" className="flag-svg">
-          <clipPath id="uk-clip"><rect width="60" height="30" /></clipPath>
-          <g clipPath="url(#uk-clip)">
-            <rect width="60" height="30" fill="#012169" />
-            <path d="M0,0 60,30 M60,0 0,30" stroke="#fff" strokeWidth="6" />
-            <path d="M0,0 60,30 M60,0 0,30" stroke="#c8102e" strokeWidth="4" />
-            <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10" />
-            <path d="M30,0 V30 M0,15 H60" stroke="#c8102e" strokeWidth="6" />
-          </g>
-        </svg>
-      </span>
-      <span className="lang-code">{lang === 'es' ? 'ES' : 'EN'}</span>
+      <span className={`lang-code ${lang === 'es' ? 'is-active' : ''}`}>ES</span>
+      <span className="lang-sep" aria-hidden="true">|</span>
+      <span className={`lang-code ${lang === 'en' ? 'is-active' : ''}`}>EN</span>
     </button>
   );
 }
@@ -420,21 +402,24 @@ function App() {
       <header className="header">
         <Logo />
         <nav aria-label="Navegación principal">
-          <a href="#uganda">{t.nav.expedition}</a>
-          <a href="#experiencias">{t.nav.experiences}</a>
-          <a href="#itinerario">{t.nav.itinerary}</a>
-          <a
-            className="header-ig"
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Myrah en Instagram"
-          >
-            <InstagramIcon />
-            <span>{t.nav.instagram}</span>
-          </a>
-          <a className="nav-cta" href="#reserva">{t.nav.cta}</a>
-          <LanguageToggle lang={lang} onToggle={toggleLang} t={t} />
+          <div className="nav-links">
+            <a href="#uganda">{t.nav.expedition}</a>
+            <a href="#experiencias">{t.nav.experiences}</a>
+            <a href="#itinerario">{t.nav.itinerary}</a>
+          </div>
+          <div className="nav-actions">
+            <a
+              className="header-ig"
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Myrah en Instagram"
+            >
+              <InstagramIcon />
+              <span>{t.nav.instagram}</span>
+            </a>
+            <LanguageToggle lang={lang} onToggle={toggleLang} t={t} />
+          </div>
         </nav>
       </header>
 
