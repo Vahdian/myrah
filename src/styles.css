@@ -826,3 +826,355 @@ h1 {
     gap: 8px;
   }
 }
+
+/* ── Banner de países (desplazamiento continuo) ───────────── */
+.country-banner {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, 100%);
+  margin: 0 auto 14px;
+  overflow: hidden;
+  border: 1px solid rgba(217, 176, 102, 0.3);
+  background: rgba(8, 12, 9, 0.7);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.country-banner-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 8px 0;
+  animation: banner-scroll 38s linear infinite;
+}
+
+.country-banner-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.country-banner-name {
+  color: var(--sand);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0 10px;
+}
+
+.country-banner-sep {
+  color: rgba(217, 176, 102, 0.55);
+  font-size: 0.6rem;
+  padding: 0 6px;
+}
+
+@keyframes banner-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country-banner-track { animation: none; }
+}
+
+/* ── Botón de idioma (banderas ES / UK) ───────────────────── */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  background: rgba(238, 227, 207, 0.04);
+  color: var(--ivory);
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.lang-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(217, 176, 102, 0.5);
+}
+
+.flag {
+  display: inline-flex;
+  width: 26px;
+  height: 17px;
+  border: 1px solid rgba(238, 227, 207, 0.25);
+  overflow: hidden;
+  opacity: 0.4;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.flag.is-active {
+  opacity: 1;
+  transform: scale(1.06);
+  border-color: rgba(217, 176, 102, 0.7);
+}
+
+.flag-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.lang-code {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: var(--sand);
+}
+
+/* ── Instagram (menú y footer) ────────────────────────────── */
+.nav-ig,
+.footer-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ig-mark {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.nav-ig:hover .ig-mark,
+.footer-ig:hover .ig-mark {
+  stroke: var(--sand);
+}
+
+.footer-ig {
+  color: var(--ivory);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.footer-meta {
+  display: grid;
+  gap: 4px;
+}
+
+.footer-lang {
+  color: var(--sand);
+  font-size: 0.78rem;
+}
+
+.lang-note {
+  position: relative;
+  max-width: 680px;
+  margin-top: 14px;
+  color: var(--sand);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.send-note {
+  color: var(--sand);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── Inscripciones tipo grabado antiguo (hero) ────────────── */
+.inscriptions {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.inscription {
+  position: absolute;
+  color: rgba(217, 176, 102, 0.22);
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 0.6rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.inscription-top {
+  top: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.inscription-bottom {
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transform: rotate(180deg);
+}
+
+.inscription-left {
+  top: 50%;
+  left: 6px;
+  transform: rotate(-90deg) translateX(-50%);
+  transform-origin: left center;
+}
+
+.inscription-right {
+  top: 50%;
+  right: 6px;
+  transform: rotate(90deg) translateX(-50%);
+  transform-origin: right center;
+}
+
+/* ── Conmutador de modos de Uganda ────────────────────────── */
+.mode-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 16px;
+  padding: 14px 18px;
+  border: 1px solid rgba(63, 125, 73, 0.5);
+  background:
+    linear-gradient(160deg, rgba(63, 125, 73, 0.16), transparent 70%),
+    rgba(13, 24, 18, 0.8);
+}
+
+.mode-arrow,
+.carousel-arrow {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  background: rgba(8, 8, 7, 0.7);
+  color: var(--ivory);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.mode-arrow:hover,
+.carousel-arrow:hover {
+  transform: translateY(-2px);
+  border-color: rgba(217, 176, 102, 0.6);
+  background: rgba(63, 125, 73, 0.2);
+}
+
+.mode-switch-info {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.mode-switch-label {
+  color: var(--sand);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
+.mode-switch-name {
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.mode-switch-tag {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.mode-dots {
+  display: inline-flex;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.mode-dot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--sand);
+  background: transparent;
+}
+
+.mode-dot.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.mode-summary {
+  max-width: 880px;
+  margin: 0 0 26px;
+  color: var(--ivory);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ── Carrusel de destinos ─────────────────────────────────── */
+.carousel {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.carousel-card {
+  flex: 1;
+  min-height: 320px;
+}
+
+.carousel-arrow {
+  align-self: center;
+  height: 56px;
+  width: 56px;
+}
+
+.carousel-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid var(--sand);
+  background: transparent;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.carousel-dot:hover {
+  transform: scale(1.2);
+}
+
+.carousel-dot.is-active {
+  background: var(--sand);
+}
+
+@media (max-width: 920px) {
+  .mode-switch {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 640px) {
+  .country-banner-name {
+    letter-spacing: 0.18em;
+    font-size: 0.7rem;
+  }
+
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Mantener visibles idioma e Instagram aunque el resto del menú se oculte */
+  nav .nav-ig,
+  nav .lang-toggle {
+    display: inline-flex;
+  }
+}
